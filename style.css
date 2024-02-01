@@ -1,0 +1,136 @@
+body{
+    margin: 0px;
+    background-color: #1d1b24;
+}
+
+.opt{
+    margin: 0px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.opt h1{
+    margin-left: 30px;
+    font-weight: 100;
+    display: inline;
+    color: aqua;
+}
+.opt button{
+    position: absolute;
+    right: 20px;
+    background-color: aqua;
+    outline: none;
+    border: 1px solid;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.bpt{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.bpt p{
+    font-size: x-large;
+    color: rgb(137, 137, 137);
+}
+
+.agg{
+    height: 150px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.agg p{
+    height: 30px;
+    color: aqua;
+    font-size: 40px;
+}
+.val{
+    color: white;
+    font-size: 70px;
+}
+
+.des{
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(138, 138, 138);
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 50px;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 8px;
+    margin: 5px auto;
+    margin-bottom: 10px;
+    background-color: #383552;
+}
+.cell {
+    flex: 1;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.Headrow {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    align-items: center;
+    border-radius: 10px;
+    padding: 8px;
+    margin: 0px auto;
+    margin-top: 35px;
+}
+.Headcell {
+    flex: 1;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    color: #555555;
+}
+
+.btn{
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    background-color: #1d1b24;
+}
+.btn button{
+    height: 30px;
+    padding: 5px;
+    background-color: #1d1b24;
+    border: 1px solid aqua;
+    border-radius: 5px;
+    color: aqua;
+}
+.btn button:hover{
+    background-color: aqua;
+    color: white;
+    transition: 1s;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hodlinfo</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+        <div class="opt">
+            <h1>HODLINFO</h1>
+            <button>Connect Telegram</button>
+        </div>
+        <div class="bpt">
+            <p>Best Price to Trade</p>
+        </div>
+        <div class="agg">
+            <p class="mins">0.1%</p>
+            <p class="hour">0.96%</p>
+            <h3 id="val" class="val">₹</h3>
+            <p class="day">2.73%</p>
+            <p class="days">7.51%</p>
+        </div>
+        <div class="des">Average BTC/INR net price including comission</div>
+        <div class="content" id="dataTable">
+            <div class="Headrow">
+                <div class="Headcell">#</div>
+                <div class="Headcell">Name</div>
+                <div class="Headcell">Last Traded Price</div>
+                <div class="Headcell">Buy Price</div>
+                <div class="Headcell">Sell Price</div>
+                <div class="Headcell">Differences</div>
+            </div>
+        </div>
+        <div class="btn"><button>Add hodlinfo to home screen</button></div>
+    </div>
+
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:3000');
+                const Data = await response.json();
+                console.log(Data)
+
+                let avg=0;
+                let counter = 0;
+                Data.data.forEach(rowData => {
+                    const row = document.createElement('div');
+                    row.classList.add('row');
+
+                    
+                    const num = document.createElement('div');
+                    num.classList.add('cell');
+                    counter++;
+                    num.textContent = counter;
+                    row.appendChild(num);
+
+                    
+                    let col=1;
+                    for (const cellKey in rowData) {
+                        if (Object.hasOwnProperty.call(rowData, cellKey)) {
+                            const cellData = rowData[cellKey];
+                            const cell = document.createElement('div');
+                            cell.classList.add('cell');
+                            if(col==2)
+                                avg+=cellData;
+                            if(col==5)
+                                cell.textContent = `${cellData}%`;
+                            else if(col==2 || col==3 || col==4)
+                                cell.textContent = `₹${(cellData).toLocaleString()}`;
+                            else
+                                cell.textContent = cellData;
+                            row.appendChild(cell);
+                            col++;
+                        }
+                    }
+
+                    // Append the row to the container
+                    document.getElementById('dataTable').appendChild(row);
+                });
+                document.getElementById('val').innerHTML = `₹${(Math.floor(avg/10)).toLocaleString()}`;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        fetchData()
+
+        
+    </script>
+</body>
+</html>
