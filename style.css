@@ -134,3 +134,18 @@ body{
     color: white;
     transition: 1s;
 }
+
+@media screen and (max-width:800px) {
+    .agg p{
+        font-size: 20px;
+    }
+    .val{
+        font-size: 40px;
+    }
+    .Headcell {
+        font-size: 10px;
+    }
+    .cell {
+        font-size: 15px;
+    }
+}
